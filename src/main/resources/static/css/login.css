@@ -1,0 +1,137 @@
+/* 전체 page 크기 설정*/
+.page-container{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Alata', sans-serif;
+
+    width: 100vw;
+    height: 100vh;
+    background: #eff0f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* 그림자 설정*/
+.shadow{
+    -webkit-box-shadow: 27px 43px 43px -26px rgba(89,89,89,0.39);
+    -moz-box-shadow: 27px 43px 43px -26px rgba(89,89,89,0.39);
+    box-shadow: 27px 43px 43px -26px rgba(89,89,89,0.39);
+}
+
+/* 로그인 폼 범위 설정*/
+.login-form-container{
+ 
+    background:#f5f5f5 ;
+    width:860px;
+    height: 540px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 10px black;
+    border-radius: 10px;
+
+}
+/* 오른쪽 셋팅 */
+.login-form-right-side{
+    width: 50%; 
+    border-radius: 10px 0px 0px 10px;
+    padding:75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-image: url( "/img/logo.png" );
+}
+
+/* 글자 셋팅*/
+.login-form-right-side h1{
+    color: white;
+    width:100%;
+    text-align: right;
+    opacity: 0.9;
+
+}
+
+.login-form-right-side p{
+    padding-top: 50px;
+    font-size:12px;
+    text-align: right;
+    opacity: 0.8;
+}
+
+/* 왼쪽 셋팅 */
+.login-form-left-side{
+    width: 50%;
+    border-radius: 0px 10px 10px 0px;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    padding:40px;
+    background: rgb(255,255,255);
+    background: linear-gradient(287deg, rgba(255,255,255,1) 0%, rgba(243,244,244,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+/*입력폼 전체 크기*/
+.login-input-container{
+    padding-top:120px;
+    width:300px;
+}
+ 
+/*입력창 설정*/
+.login-input-container .login-input-wrap{
+    width:300px;
+    height: 45px;
+    margin-top: 20px;
+    border-radius: 2px;
+    border-bottom: solid 2px #2178ff;
+   
+}
+/*아이콘 셋팅*/
+.login-input-container .login-input-wrap i{
+    color: #2178ff;
+    line-height: 45px;
+}
+
+.login-input-container .login-input-wrap input{
+    background: none;
+   
+    border: none;
+    line-height: 45px;
+    padding-left:10px;
+    width:267px;
+}
+.login-input-container .login-input-wrap input:focus{
+    outline: none;
+}
+/*버튼 범위 설정*/
+.login-btn-wrap{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*버튼 디자인 셋팅*/
+.login-btn-wrap .login-btn{
+    width:95px;
+    height:35px;
+    color:white;
+    border: 0;
+    border-radius: 4px;
+
+    background: rgb(105,163,255);
+    background: linear-gradient(162deg, rgba(105,163,255,1) 0%, rgba(43,125,254,1) 50%, rgba(43,125,254,1) 100%);
+}
+
+
+.login-btn-wrap a{
+    margin-top:10px;
+    text-decoration: none;
+    font-size: 11px;
+    color: gray;
+
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.grd.hosp.dao.HospitalMemberMapper">
+	<select id="retreiveHospitalMember" resultType="com.grd.hosp.entity.HospitalMemberEntity">
+		SELECT  *
+		  FROM HOSPITAL_MEMBER
+		 WHERE HOSPITAL_ID = #{hospital_id}
+		 <if test='dept != null and dept != ""'>
+		 	AND DEPT = #{dept}
+		 </if>
+		 
+	</select>
+	
+	<select id="retreiveHospitalDept" resultType="com.grd.hosp.entity.HospitalMemberEntity">
+		SELECT  DISTINCT DEPT
+		  FROM HOSPITAL_MEMBER
+		 WHERE HOSPITAL_ID = #{hospital_id}
+	</select>
+</mapper>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.grd.hosp.dao.MemberMapper">
+	<select id="selectById" resultType="com.grd.hosp.entity.MemberEntity">
+		SELECT * 
+		FROM MEMBER
+		WHERE ID = #{id}
+	</select>
+
+	<select id="login" parameterType="com.grd.hosp.entity.MemberEntity" resultType="com.grd.hosp.entity.MemberEntity">
+		SELECT * 
+		FROM MEMBER
+		WHERE ID = #{id}
+		AND   PW = #{pw}
+	</select>
+	
+	<insert id="join" parameterType="com.grd.hosp.entity.MemberEntity">
+		INSERT
+		  INTO MEMBER(
+			   ID
+			  ,PW
+			  ,NAME
+			  ,ADDRESS
+			  ,PHONE
+			  ,GENDER)
+		VALUES (
+			   #{id}
+			  ,#{pw}
+			  ,#{name}
+			  ,#{address}
+			  ,#{phone}
+			  ,#{gender})
+	</insert>
+	
+	<update id="updateMember" parameterType="com.grd.hosp.entity.MemberEntity">
+		UPDATE MEMBER
+		   SET ID = ID
+		   <if test='pw != "" and pw != null'>
+		   	  ,PW = #{pw}
+		   </if>
+		   <if test='name != "" and name != null'>
+		   	  ,NAME = #{name}
+		   </if>
+		   <if test='address != "" and address != null'>
+		     ,ADDRESS = #{address}
+		   </if>
+		   <if test='phone != "" and phone != null'>
+		     ,PHONE = #{phone}
+		   </if>
+		   <if test='gender != "" and gender != null'>
+		     ,GENDER = #{gender}
+		   </if>
+		WHERE ID = #{id}
+	</update>
+</mapper>

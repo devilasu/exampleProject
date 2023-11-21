@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>회원가입</title>
+</head>
+<link rel="stylesheet" href="/css/join.css">
+<script src="https://kit.fontawesome.com/51db22a717.js" crossorigin="anonymous"></script>
+<script src="/js/join.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+<body>
+   <!--전체 구성 div 태그를 통해 header, wrapper,content 세 부분으로 구성
+       content 안에 입력 폼들을  div 태그로 묶어주고 버튼도 포함  -->
+    <div id="header"> 
+        <div id="wrapper">
+            <div id="content">
+                <form id= "joinForm" class="login-form-container shadow" method="post" action="/web/join">
+                <!-- 1. 로고 -->
+                <div>
+                    <img class="logo" src="/img/logo.png">   
+                </div>
+
+                 <!--아이디 폼-->
+                 <!--h3 태그는 의미상 구분 단위로 쓰기 위해서 또 h3 태그를 모아서 한 번에 스타일을 적용하기 위해서 사용-->
+                 <!--label 태그는 "아이디"라는 글자를 클릭하면 자동으로 아이디 입력폼에 포커스가 되는 기능을 주기 위해서 사용.-->
+                 <!--입력폼 전체를 묶은 span 태그에는 box라는 class값을 설정해주고, input 태그에도 int라는 class값을 설정 / 모든 입력폼에 공통적인 스타일을 적용-->
+                <div>
+                    <h3> <label for ="user_id">아이디 </label></h3>
+                    <span class=" box int_id">
+                        <!-- max-length 속성은 입력할 수 있는 글자수를 20자로 제한하는 속성-->
+                        <input type="text" id="user_id" name="id" class="int" maxlength="20">
+                    </span>
+                <div>   
+                
+
+                <!--비빌번호 폼-->
+                <div>
+                    <h3>
+                    <label for ="user_pw">비밀번호 </label>
+                    </h3>
+                    <span class=" box int_pw">
+                        <input type="text" id="user_pw" name="pw" class="int" maxlength="20">
+                    </span>
+                    <span class="error_next_box"></span>    
+                </div>
+
+                <!--비빌번호 확인 폼-->
+                <div>
+                    <h3>
+                    <label for ="user_pw_re">비밀번호 확인 </label>
+                    </h3>
+                    <span class=" box int_pw_re">
+                        <input type="text" id="user_pw_re" class="int" maxlength="20">
+                    </span>
+                    <span class="error_next_box"></span>    
+                </div>
+
+                <!--병원이름 폼-->
+                <div>
+                    <h3>
+                    <label for ="user_name">병원 이름 </label>
+                    </h3>
+                    <span class=" box int_name">
+                        <input type="text" id="user_name" name="name" class="int" maxlength="20">
+                    </span>
+                    <span class="error_next_box"></span>   
+                </div> 
+
+                <!--병원주소 폼-->
+                <div>
+                    <h3>
+                    <label for ="user_address">병원 주소 </label>
+                    </h3>
+                    <span class=" box int_address">
+                        <input type="text" id="user_address" name="address" class="int" maxlength="20">
+                    </span>
+                    <span class="error_next_box"></span>   
+                    </div> 
+
+                <!--병원연락처 폼-->   
+                </div>
+                    <h3>
+                    <label for ="tel">병원 연락처 </label>
+                    </h3>
+                    <span class=" box int_tel">
+                        <input type="text" id="tel" name="phone" class="int" maxlength="20">
+                    </span>
+                    <span class="error_next_box"></span> 
+                </div>   
+
+
+                <!--가입 버튼-->
+                <div class="btn_area">
+                        <button type="button" id="btnJoin" onclick="joinHospital()">
+                        	<span>가입하기</span>
+                        </button>
+                </div>
+
+                
+            </form>
+        </div>
+    </div> 
+  </div>  
+</body>
+</html>
+
+

@@ -1,0 +1,94 @@
+/* height를 %값으로 주게 되면, 상위태그(부모태그)의 높이를 기준으로 높이가 설정 */
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    background: #f5f6f7;
+    font-family: Dotum,'돋움',Helvetica,sans-serif;
+}
+
+/* 사진 */
+.logo {
+    width: 500px;
+    height: 160px;
+    cursor: pointer;
+}
+
+
+#header {
+    padding-top: 62px;
+    padding-bottom: 20px;
+}
+
+#wrapper {
+    position: relative;
+    height: 100%;
+}
+
+#content {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 500px;
+}
+
+/*입력폼의 제목 설정*/
+h3 {
+    margin: 19px 0 8px;
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 1%;
+}
+
+/*입력폼 외부 범위 설정*/
+.box {
+    display: block;
+    width: 100%;
+    height: 51px;
+    border: solid 1px #dadada;
+    padding: 10px 14px 10px 14px; 
+    box-sizing: border-box;  /* box의 크기를 어떤 기준으로 계산할지 정하는 속성 */
+    background: #fff;
+    position: relative;
+}
+
+/*입력폼 내부 설정*/
+.int {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 29px;
+    border: none;
+    background: #fff;
+    font-size: 15px;
+}
+
+/*입력 폰트*/
+input {
+    font-family: initial;    
+}
+
+
+/*버튼 css*/
+.btn_area {
+    margin: 30px 0 91px;
+
+}
+
+
+#btnJoin {
+    width: 100%;
+    padding: 21px 0 17px;
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+
+    background: rgb(105,163,255);
+    background: linear-gradient(162deg, rgba(105,163,255,1) 0%, rgba(43,125,254,1) 50%, rgba(43,125,254,1) 100%);
+    font-size: 20px;
+    font-weight: 400;
+    font-family: initial;
+}

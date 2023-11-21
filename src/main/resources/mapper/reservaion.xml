@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.grd.hosp.dao.ReservationMapper">
+	<select id="retreiveReservation" resultType="com.grd.hosp.dto.ReservationInqPrnReptSbDto">
+		SELECT A.RESERVE_NO
+			  ,A.MEMBER_ID
+			  ,A.HOSPITAL_MEMBER_ID
+			  ,A.RESERVE_DATE
+			  ,A.ACCEPT
+			  ,B.name
+		FROM RESERVATION A
+		JOIN MEMBER B
+		ON A.MEMBER_ID = B.ID
+		JOIN HOSPITAL_MEMBER C
+		ON C.MEMBER_ID= A.HOSPITAL_MEMBER_ID
+		JOIN HOSPITAL D
+		ON D.ID = C.HOSPITAL_ID
+		WHERE 1=1
+		<if test='hospitalId != null and hospitalId != ""'>
+			AND D.ID = #{hospitalId}
+		</if>
+	</select>
+	
+	<insert id="registReservation" parameterType="com.grd.hosp.entity.ReservationEntity">
+		INSERT
+		  INTO RESERVATION(
+			   RESERVE_NO
+			  ,MEMBER_ID
+			  ,HOSPITAL_MEMBER_ID
+			  ,PARSEDATETIME(RESERVE_DATE, 'yyyy-MM-dd HH:mm:ss')
+			  ,ACCEPT
+			  ,SYMPTOM
+			  )
+	   VALUES (
+			   (SELECT MAX(RESERVE_NO)+1 FROM RESERVATION)
+			  ,#{memberId}
+			  ,#{hospitalMemberId}
+			  ,#{reserveDate}
+			  ,#{symptom}
+			  ,''
+			  )
+	</insert>
+	
+	<update id="updateReservation" parameterType="com.grd.hosp.entity.ReservationEntity">
+		UPDATE RESERVATION
+		   SET ACCEPT = #{accept}
+		WHERE RESERVE_NO = #{reserve_no}
+	</update>
+</mapper>

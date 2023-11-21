@@ -1,0 +1,23 @@
+.tableBtn{
+	width: 100%;
+}
+.title{
+	margin-left: 20%;
+	margin-top: 30px;
+}
+
+.reservationTable{
+	text-align: center;
+	width: 40%;
+	margin-left: 10%;
+	margin-top: 30px;
+}
+
+table{
+	border:2px solid black;
+	border-collapse:collapse;
+}
+th, td{
+	border: 1px solid black;
+	border-collapse:collapse;
+}
