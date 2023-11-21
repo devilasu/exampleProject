@@ -4,9 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/main.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="/css/main.css">
     <title>MAIN</title>
 </head>
-<h1 th:text="${loginName}"></h1>
+	<div id="header"> 
+	 	<div id="wrapper">
+			 
+     		<div class="title">
+             		<h1>HAW</h1>
+     		</div>
+     		
+			<div class="login-btn-wrap">
+ 				<button class="login-btn" id="login-btn" onclick="hrefLink()">로그인</button>
+ 				<button class="join-btn" id="join-btn" onclick="hreflink()">회원가입</button>
+			</div>
+			
+			<input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+			
+			<script>
+			$(function() {
+ 			 $('input[name="daterange"]').daterangepicker({
+   			 opens: 'left'
+			  }, function(start, end, label) {
+   			 console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+ 			 });
+			});
+			</script>
+			
+			
+			<div id="content" class="content">
+				<ul>
+   		 			<li>스타벅스</li>
+    				<li>커피빈</li>
+    				<li>파스쿠찌</li>
+   		 			<li>이디야</li>
+ 				 </ul>
+ 			</div>
+ 			
+ 
+			
+
+		</div>
+	</div>
 <body>
 </body>
 </html>
