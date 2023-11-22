@@ -6,6 +6,11 @@ function hreflink() {
 	location.href = "/form/join";
 }
 
+function HrefLink() {
+	location.href = "/web/reservation";
+}
+
+
 $(function () {
       $('input[name="daterange"]').daterangepicker(
         {
