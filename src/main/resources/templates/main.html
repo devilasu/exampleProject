@@ -5,14 +5,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/js/main.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <link rel="stylesheet" href="/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+<!-- Full Calendar -->
+	<script src='/js/index.global.js'></script>
+	<script src='/js/index.global.min.js'></script>
+	<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialDate: '2023-01-12',
+      editable: true,
+      selectable: true,
+      businessHours: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'All Day Event',
+          start: '2023-01-01'
+        },
+        {
+          title: 'Long Event',
+          start: '2023-01-07',
+          end: '2023-01-10'
+        },
+        {
+          groupId: 999,
+          title: 'Repeating Event',
+          start: '2023-01-09T16:00:00'
+        },
+        {
+          groupId: 999,
+          title: 'Repeating Event',
+          start: '2023-01-16T16:00:00'
+        },
+        {
+          title: 'Conference',
+          start: '2023-01-11',
+          end: '2023-01-13'
+        },
+        {
+          title: 'Meeting',
+          start: '2023-01-12T10:30:00',
+          end: '2023-01-12T12:30:00'
+        },
+        {
+          title: 'Lunch',
+          start: '2023-01-12T12:00:00'
+        },
+        {
+          title: 'Meeting',
+          start: '2023-01-12T14:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2023-01-12T17:30:00'
+        },
+        {
+          title: 'Dinner',
+          start: '2023-01-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2023-01-13T07:00:00'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2023-01-28'
+        }
+      ]
+    });
+
+    calendar.render();
+  });
+
+</script>
+
     <title>MAIN</title>
 </head>
+<body>
 	<div id="header"> 
 	 	<div id="wrapper">
 			 
@@ -25,17 +99,11 @@
  				<button class="join-btn" id="join-btn" onclick="hreflink()">회원가입</button>
 			</div>
 			
-			<input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
-			
-			<script>
-			$(function() {
- 			 $('input[name="daterange"]').daterangepicker({
-   			 opens: 'left'
-			  }, function(start, end, label) {
-   			 console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
- 			 });
-			});
-			</script>
+
+<!--달력-->
+  <div id='calendar' class="calendar"></div>
+
+<!--달력-->
 			
 			
 			<div id="content" class="content">
@@ -46,12 +114,9 @@
    		 			<li>이디야</li>
  				 </ul>
  			</div>
- 			
- 
-			
 
 		</div>
 	</div>
-<body>
+
 </body>
 </html>
