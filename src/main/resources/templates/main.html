@@ -1,121 +1,49 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="kr">
+<html xmlns:th="http://www.thymeleaf.org" lang="kr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/js/main.js"></script>
     <link rel="stylesheet" href="/css/main.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
 <!-- Full Calendar -->
 	<script src='/js/index.global.js'></script>
-	<script src='/js/index.global.min.js'></script>
-	<script>
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialDate: '2023-01-12',
-      editable: true,
-      selectable: true,
-      businessHours: true,
-      dayMaxEvents: true, // allow "more" link when too many events
-      events: [
-        {
-          title: 'All Day Event',
-          start: '2023-01-01'
-        },
-        {
-          title: 'Long Event',
-          start: '2023-01-07',
-          end: '2023-01-10'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2023-01-09T16:00:00'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2023-01-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2023-01-11',
-          end: '2023-01-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2023-01-12T10:30:00',
-          end: '2023-01-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2023-01-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2023-01-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2023-01-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2023-01-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2023-01-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2023-01-28'
-        }
-      ]
-    });
-
-    calendar.render();
-  });
-
-</script>
+	
+	<script src="/js/main.js"></script>
 
     <title>MAIN</title>
 </head>
 <body>
-	<div id="header"> 
-	 	<div id="wrapper">
-			 
-     		<div class="title">
-             		<h1>HAW</h1>
-     		</div>
-     		
-			<div class="login-btn-wrap">
- 				<button class="login-btn" id="login-btn" onclick="hrefLink()">로그인</button>
- 				<button class="join-btn" id="join-btn" onclick="hreflink()">회원가입</button>
+	<div id="wrapper" class="wrapper">
+	 
+		<div class="title">
+	       	<h1>HAW</h1>
+		</div>
+		  		
+		<div class="login-btn-wrap">
+			<button class="login-btn" id="login-btn" onclick="moveLink('/form/login')">로그인</button>
+			<button class="join-btn" id="join-btn" onclick="moveLink('/form/join')">회원가입</button>
+		</div>
+		<div class="content-wrap">
+			<div class="calendar-wrap">
+			<!--달력-->
+				<div id="calendar" class="calendar"></div>
 			</div>
 			
-
-<!--달력-->
-  <div id='calendar' class="calendar"></div>
-
-<!--달력-->
-			
-			
-			<div id="content" class="content">
-				<ul>
-   		 			<li><a href="/form/join">김민아 </li>
-    				<li><a href="/form/login">정지훈</li>
- 				 </ul>
- 			</div>
-
-			<div class="Refusal_to_accept-btn-wrap">
- 				<button class="Refusal_to_accept-btn" id="Refusal_to_accept-btn" onclick="HrefLink()">예약관리</button>
-
+			<div class="content">
+				<div id="reservation" class="reservation">
+					<ul>
+						<li><a href="/form/join">김민아</a> </li>
+						<li><a href="/form/login">정지훈</a></li>
+					</ul>
+				</div>
+					
+				<div class="Refusal_to_accept-btn-wrap">
+					<button class="Refusal_to_accept-btn" id="Refusal_to_accept-btn" onclick="moveLink('/web/reservation')">예약관리</button>
+				</div>
 			</div>
 		</div>
 	</div>
