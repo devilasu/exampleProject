@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.grd.Util.SessionUtil;
 import com.grd.hosp.entity.HospitalEntity;
+import com.grd.hosp.service.MainService;
 
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -21,15 +23,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MainController {
 	
+	@Autowired
+	MainService mainService;
+	
 	@GetMapping("/")
 	public String mainPage(Model model) throws Exception{
-		HospitalEntity loginData = (HospitalEntity)SessionUtil.getSession("loginEntity");
-		if(loginData != null) {
-			model.addAttribute("loginName", (loginData).getName());
-		}else {
-			model.addAttribute("loginName", null);
-		}
-		return "main";
+		return mainService.mainPage(model);
 	}
 	
 	@GetMapping("/log")

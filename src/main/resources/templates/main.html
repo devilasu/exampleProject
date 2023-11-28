@@ -12,6 +12,42 @@
 <!-- Full Calendar -->
 	<script src='/js/index.global.js'></script>
 	
+	<script th:inline="javascript">
+		document.addEventListener('DOMContentLoaded', function() {
+			let today = new Date();
+			
+			let year = today.getFullYear();
+			let month = today.getMonth() + 1;
+			let date = today.getDate();
+			let reservationData = /*[[${reservations}]]*/;
+			let eventsData = new Array();
+				
+			for(let item in reservationData){
+				let eventsInfo = new Object();
+				eventsInfo.title = reservationData[item].name;
+				eventsInfo.start = reservationData[item].reserve_date;
+				
+				eventsData.push(eventsInfo);
+			}
+		    let calendarEl = document.getElementById('calendar');
+			
+		    let calendar = new FullCalendar.Calendar(calendarEl, {
+		      initialDate: year+'-'+month+'-'+date,
+		      editable: false,
+		      selectable: false,
+		      businessHours: true,
+		      dayMaxEvents: true, // allow "more" link when too many events
+		      events: eventsData
+		    });
+	
+		    calendar.render();
+		    
+		    calendar.on('dateClick', function (info) {
+		        //alert('clicked on ' + info.dateStr);
+			});
+		});
+	</script>
+	
 	<script src="/js/main.js"></script>
 
     <title>MAIN</title>
@@ -36,8 +72,9 @@
 			<div class="content">
 				<div id="reservation" class="reservation">
 					<ul>
-						<li><a href="/form/join">김민아</a> </li>
-						<li><a href="/form/login">정지훈</a></li>
+						<th:block th:each="reservation, i : ${reservations}">
+							<li th:if="${reservation.reserve_date == #calendars.format(#calendars.createNow(), 'yyyy-MM-dd')}" th:text="${reservation.name}"></li>
+						</th:block>
 					</ul>
 				</div>
 					

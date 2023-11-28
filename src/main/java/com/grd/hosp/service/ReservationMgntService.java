@@ -24,7 +24,6 @@ public class ReservationMgntService {
 	ReservationMapper reservationMapper; 
 	
 	public List<ReservationInqPrnReptSbDto> retreiveReservation(ReservationInqInpDto input) throws Exception{
-		ReservationEntity retreiveInput = new ReservationEntity();
 		List<ReservationInqPrnReptSbDto> output = new ArrayList<ReservationInqPrnReptSbDto>();
 		
 		try {
