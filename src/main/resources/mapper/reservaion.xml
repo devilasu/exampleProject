@@ -21,6 +21,9 @@
 		<if test='hospitalId != null and hospitalId != ""'>
 			AND D.ID = #{hospitalId}
 		</if>
+		<if test='accept != null and accept != ""'>
+			AND A.ACCEPT = #{accept}
+		</if>
 	</select>
 	
 	<insert id="registReservation" parameterType="com.grd.hosp.entity.ReservationEntity">
