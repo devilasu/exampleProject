@@ -13,5 +13,6 @@ public class ReservationInqPrnReptSbDto {
 	private String hospital_member_id;
 	private String reserve_date;
 	private String accept;
+	private String symptom;
 	private String name;
 }

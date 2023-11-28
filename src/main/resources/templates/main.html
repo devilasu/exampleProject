@@ -73,7 +73,7 @@
 				<div id="reservation" class="reservation">
 					<ul>
 						<th:block th:each="reservation, i : ${reservations}">
-							<li th:if="${reservation.reserve_date == #calendars.format(#calendars.createNow(), 'yyyy-MM-dd')}" th:text="${reservation.name}"></li>
+							<li th:if="${reservation.reserve_date == #calendars.format(#calendars.createNow(), 'yyyy-MM-dd')}" th:text="${reservation.name + ', '+reservation.symptom}"></li>
 						</th:block>
 					</ul>
 				</div>

@@ -9,6 +9,7 @@
 			  ,A.HOSPITAL_MEMBER_ID
 			  ,A.RESERVE_DATE
 			  ,A.ACCEPT
+			  ,A.SYMPTOM
 			  ,B.name
 		FROM RESERVATION A
 		JOIN MEMBER B
