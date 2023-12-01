@@ -10,7 +10,9 @@
 			  ,A.RESERVE_DATE
 			  ,A.ACCEPT
 			  ,A.SYMPTOM
-			  ,B.name
+			  ,B.NAME
+			  ,C.NAME AS DOCTOR_NAME
+			  ,C.DEPT AS DOCTOR_DEPT
 		FROM RESERVATION A
 		JOIN MEMBER B
 		ON A.MEMBER_ID = B.ID
@@ -25,6 +27,7 @@
 		<if test='accept != null and accept != ""'>
 			AND A.ACCEPT = #{accept}
 		</if>
+		ORDER BY RESERVE_DATE DESC
 	</select>
 	
 	<insert id="registReservation" parameterType="com.grd.hosp.entity.ReservationEntity">

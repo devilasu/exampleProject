@@ -28,9 +28,9 @@
 	               	</thead>
 	               	<tbody>
 	               		<tr th:each="reservation : ${reservations}">
-	               			<td th:text="${reservation.name}">reservationHospitalDept</td>
-	               			<td th:text="${reservation.name}">reservationHospitalDoctor</td>
 	               			<td th:text="${reservation.name}">reservationName</td>
+	               			<td th:text="${reservation.doctor_dept}">reservationHospitalDept</td>
+	               			<td th:text="${reservation.doctor_name}">reservationHospitalDoctor</td>
 	               			<td th:text="${reservation.reserve_date}">reservationDate</td>
 	               			<th:block th:if="${reservation.accept == 'Y'}">
 	               				<td >예약</td>
