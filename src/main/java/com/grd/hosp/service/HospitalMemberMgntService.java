@@ -7,8 +7,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.grd.Util.SessionUtil;
 import com.grd.hosp.dao.HospitalMemberMapper;
 import com.grd.hosp.dto.HospitalMemberInqPrnReptSbDto;
+import com.grd.hosp.entity.HospitalEntity;
 import com.grd.hosp.entity.HospitalMemberEntity;
 
 import lombok.extern.slf4j.Slf4j;
@@ -53,5 +55,12 @@ public class HospitalMemberMgntService {
 		}
 		
 		return output;
+	}
+	
+	public String joinDoctor(HospitalMemberEntity input) throws Exception{
+		String hospitalId = ((HospitalEntity)SessionUtil.getAttribute("loginEntity")).getId();
+		input.setHospital_id(hospitalId);
+		hospitalMemberMapper.joinDoctor(input);
+		return "redirect:/";
 	}
 }

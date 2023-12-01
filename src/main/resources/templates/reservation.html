@@ -12,9 +12,14 @@
 	   <!--전체 구성 div 태그를 통해 header, wrapper,content 세 부분으로 구성
 	       content 안에 입력 폼들을  div 태그로 묶어주고 버튼도 포함  -->
 	    <div id="header"> 
-	        <div id="wrapper">
-	        	<h2 class="title" th:text="${loginData.name}+' 예약정보'"></h2>
-				<div id="content">
+	        <div class="wrapper">
+	        	<div class="title">
+	        		<h2  th:text="${loginData.name}+' 예약정보'"></h2>
+	        	</div>
+	        	<div class="mainBtnWrap">
+	        		<button type="button" class="mainBtn" onclick='moveUrl("/")'>메인으로</button>
+	        	</div>
+				<div class="content">
 	               <table id='reservationTable' class='reservationTable'>
 	               	<thead>
 	               		<tr>

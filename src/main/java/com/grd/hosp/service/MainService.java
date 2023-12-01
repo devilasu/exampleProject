@@ -31,7 +31,7 @@ public class MainService {
 	
 	//회원가입
 	public String mainPage(Model model) throws Exception {
-		HospitalEntity loginData = (HospitalEntity)SessionUtil.getSession("loginEntity");
+		HospitalEntity loginData = (HospitalEntity)SessionUtil.getAttribute("loginEntity");
 		if(loginData != null) {
 			ReservationInqInpDto input = new ReservationInqInpDto();
 			input.setHospitalId(loginData.getId());

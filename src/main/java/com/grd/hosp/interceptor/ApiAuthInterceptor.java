@@ -12,7 +12,7 @@ public class ApiAuthInterceptor implements HandlerInterceptor{
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-		if(SessionUtil.getSession("loginEntity") != null) {
+		if(SessionUtil.getAttribute("loginEntity") != null) {
 			return true;
 		}else {
 			request.setAttribute("message", "로그인이 필요합니다.");

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -31,5 +33,15 @@ public class HospitalMemberMgntController {
 	@GetMapping("/api/hospitaldept")
 	public @ResponseBody List<HospitalMemberInqPrnReptSbDto> retreiveHospitalDept(@RequestBody HospitalMemberEntity input) throws Exception{
 		return hospitalMemberMgntService.retreiveHospitalDept(input);
+	}
+	
+	@PostMapping("/web/doctor")
+	public String joinDoctor(@ModelAttribute HospitalMemberEntity input) throws Exception{
+		return hospitalMemberMgntService.joinDoctor(input);
+	}
+	
+	@GetMapping("/form/doctor")
+	public String formJoinDoctor() throws Exception{
+		return "/joinDoctor";
 	}
 }

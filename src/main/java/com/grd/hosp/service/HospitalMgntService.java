@@ -69,9 +69,14 @@ public class HospitalMgntService {
 		
 		if(output != null && output.getName() != "" && output.getName() != null) {
 			//세션 등록
-			SessionUtil.setSession("loginEntity", output);
+			SessionUtil.setAttribute("loginEntity", output);
 			return "redirect:/";
 		}
+		return "redirect:/form/login";
+	}
+	
+	public String logout() throws Exception{
+		SessionUtil.removeAttribute("loginEntity");
 		return "redirect:/form/login";
 	}
 }

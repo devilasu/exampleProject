@@ -10,4 +10,5 @@ import com.grd.hosp.entity.HospitalMemberEntity;
 public interface HospitalMemberMapper {
 	public List<HospitalMemberEntity> retreiveHospitalMember(HospitalMemberEntity input) throws Exception;
 	public List<HospitalMemberEntity> retreiveHospitalDept(HospitalMemberEntity input) throws Exception;
+	public int joinDoctor(HospitalMemberEntity input) throws Exception;
 }

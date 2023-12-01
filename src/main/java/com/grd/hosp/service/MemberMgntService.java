@@ -40,12 +40,12 @@ public class MemberMgntService {
 	public MemberInqPrnDto retrieveMe() throws Exception {
 		MemberInqPrnDto output = new MemberInqPrnDto();
 		
-		if(SessionUtil.getSession("loginEntity") == null) {
+		if(SessionUtil.getAttribute("loginEntity") == null) {
 			log.info("로그인 정보가 없습니다");
 			return null;
 		}
 		
-		MemberEntity result = memberMapper.selectById(((MemberEntity)SessionUtil.getSession("loginEntity")).getId());
+		MemberEntity result = memberMapper.selectById(((MemberEntity)SessionUtil.getAttribute("loginEntity")).getId());
 		
 		BeanUtils.copyProperties(result, output);
 		
@@ -56,7 +56,7 @@ public class MemberMgntService {
 	
 	//개인정보 수정
 	public boolean updateMember(MemberPutInpDto input) throws Exception {
-		MemberEntity loginEntity = (MemberEntity)SessionUtil.getSession("loginEntity");
+		MemberEntity loginEntity = (MemberEntity)SessionUtil.getAttribute("loginEntity");
 		if(loginEntity == null) {
 			log.info("로그인 정보가 없습니다");
 			return false;
@@ -85,7 +85,7 @@ public class MemberMgntService {
 			return false;
 		}
 		if(loginData != null) {
-			SessionUtil.setSession("loginEntity", loginData);
+			SessionUtil.setAttribute("loginEntity", loginData);
 			return true;
 		}else {
 			return false;

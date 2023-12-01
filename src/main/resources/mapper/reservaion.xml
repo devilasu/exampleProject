@@ -7,7 +7,8 @@
 		SELECT A.RESERVE_NO
 			  ,A.MEMBER_ID
 			  ,A.HOSPITAL_MEMBER_ID
-			  ,A.RESERVE_DATE
+			  ,FORMATDATETIME(A.RESERVE_DATE, 'yyyy-MM-dd') AS RESERVE_DATE 
+			  ,FORMATDATETIME(A.RESERVE_DATE, 'HH')  AS RESERVE_TIME
 			  ,A.ACCEPT
 			  ,A.SYMPTOM
 			  ,B.NAME
@@ -30,13 +31,24 @@
 		ORDER BY RESERVE_DATE DESC
 	</select>
 	
+	<select id="retreiveReservationDate" parameterType="com.grd.hosp.dto.ReservationRegInpDto">
+		SELECT count(1)
+		FROM HOSPITAL_MEMBER A
+			,RESERVATION B
+		WHERE 1=1
+		AND   A.MEMBER_ID = B.HOSPITAL_MEMBER_ID
+		AND   A.MEMBER_ID = #{HOSPITAL_MEMBER_ID}
+		AND   B.RESERVE_DATE = #{reserveDate}
+	
+	</select>
+	
 	<insert id="registReservation" parameterType="com.grd.hosp.entity.ReservationEntity">
 		INSERT
 		  INTO RESERVATION(
 			   RESERVE_NO
 			  ,MEMBER_ID
 			  ,HOSPITAL_MEMBER_ID
-			  ,PARSEDATETIME(RESERVE_DATE, 'yyyy-MM-dd HH:mm:ss')
+			  ,PARSEDATETIME(FORMATDATETIME(PARSEDATETIME(RESERVE_DATE, 'yyyy-MM-dd HH:mm:ss'), 'yyyy-MM-dd HH'), 'yyyy-MM-dd HH')
 			  ,ACCEPT
 			  ,SYMPTOM
 			  )

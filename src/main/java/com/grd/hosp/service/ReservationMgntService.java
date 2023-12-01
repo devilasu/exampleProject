@@ -38,9 +38,16 @@ public class ReservationMgntService {
 	public boolean registReservation(ReservationRegInpDto input) throws Exception{
 		ReservationEntity regInput = new ReservationEntity();
 		boolean output = false;
+		int result = 0;
 		BeanUtils.copyProperties(input, regInput);
 		
 		try {
+			result = reservationMapper.retreiveReservationDate(input);
+			
+			if(result > 0) {
+				return false;
+			}
+			
 			output = reservationMapper.registReservation(regInput);
 		}catch(Exception e) {
 			return output;

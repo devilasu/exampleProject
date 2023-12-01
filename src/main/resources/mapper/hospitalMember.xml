@@ -18,4 +18,20 @@
 		  FROM HOSPITAL_MEMBER
 		 WHERE HOSPITAL_ID = #{hospital_id}
 	</select>
+	
+	<insert id="joinDoctor" parameterType="com.grd.hosp.entity.HospitalMemberEntity">
+		INSERT 
+		INTO HOSPITAL_MEMBER(
+			MEMBER_ID
+		   ,HOSPITAL_ID
+		   ,NAME
+		   ,DEPT
+		)
+		VALUES(
+			(SELECT MAX(MEMBER_ID)+1 FROM HOSPITAL_MEMBER)
+		   ,#{hospital_id}
+		   ,#{name}
+		   ,#{dept}
+		)
+	</insert>
 </mapper>

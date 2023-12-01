@@ -9,3 +9,7 @@ function reservationYN(number, acceptYn){
 	form.submit();
 	
 }
+
+function moveUrl(url){
+	location.href = url;
+}

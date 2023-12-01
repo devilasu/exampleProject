@@ -51,4 +51,9 @@ public class HospitalMgntController {
 	public String HospitalLogin(@ModelAttribute HospitalLoginInpDto input) throws Exception{
 		return hospitalService.login(input);
 	}
+	
+	@GetMapping("/web/logout")
+	public String HospitalLogout() throws Exception{
+		return hospitalService.logout();
+	}
 }

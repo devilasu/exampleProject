@@ -43,6 +43,10 @@
 	margin-left: 5%;
 }
 
+.reservationTable{
+	width: 100%;
+}
+
 .reservation{
 	width: 100%;
 	border: 4px dashed #bcbcbc;

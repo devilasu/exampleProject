@@ -1,3 +1,3 @@
-function loginHospital(){
-	document.getElementById("loginForm").submit();
+function joinHospital(){
+	location.href = "/form/join";
 }

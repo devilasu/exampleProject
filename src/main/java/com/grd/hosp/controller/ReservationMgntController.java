@@ -44,7 +44,7 @@ public class ReservationMgntController {
 	
 	@GetMapping("/web/reservation")
 	public String retreiveReservationFromHospital(HttpServletRequest request, @ModelAttribute ReservationInqInpDto input) throws Exception{
-		HospitalEntity loginData = (HospitalEntity)SessionUtil.getSession("loginEntity");
+		HospitalEntity loginData = (HospitalEntity)SessionUtil.getAttribute("loginEntity");
 		List<ReservationInqPrnReptSbDto> output = new ArrayList<ReservationInqPrnReptSbDto>();
 		
 		if(loginData == null) {
@@ -66,7 +66,7 @@ public class ReservationMgntController {
 	
 	@PostMapping("/web/reservation")
 	public String updateReservation(HttpServletRequest request, @ModelAttribute ReservationEntity reservationValue) throws Exception{
-		HospitalEntity loginData = (HospitalEntity)SessionUtil.getSession("loginEntity");
+		HospitalEntity loginData = (HospitalEntity)SessionUtil.getAttribute("loginEntity");
 		
 		boolean output = reservationMgntService.updateReservation(reservationValue);
 		
