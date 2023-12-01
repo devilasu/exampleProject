@@ -14,13 +14,13 @@
 	
 	<script th:inline="javascript">
 		document.addEventListener('DOMContentLoaded', function() {
-			let today = new Date();
+			var today = new Date();
 			
-			let year = today.getFullYear();
-			let month = today.getMonth() + 1;
-			let date = today.getDate();
-			let reservationData = /*[[${reservations}]]*/;
-			let eventsData = new Array();
+			var year = today.getFullYear();
+			var month = today.getMonth() + 1;
+			var date = today.getDate();
+			var reservationData = /*[[${reservations}]]*/;
+			var eventsData = new Array();
 				
 			for(let item in reservationData){
 				let eventsInfo = new Object();
@@ -29,9 +29,9 @@
 				
 				eventsData.push(eventsInfo);
 			}
-		    let calendarEl = document.getElementById('calendar');
+			var calendarEl = document.getElementById('calendar');
 			
-		    let calendar = new FullCalendar.Calendar(calendarEl, {
+			var calendar = new FullCalendar.Calendar(calendarEl, {
 		      initialDate: year+'-'+month+'-'+date,
 		      editable: false,
 		      selectable: false,
