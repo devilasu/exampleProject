@@ -28,7 +28,7 @@
 		   ,DEPT
 		)
 		VALUES(
-			(SELECT MAX(MEMBER_ID)+1 FROM HOSPITAL_MEMBER)
+			(SELECT MAX(CONVERT(MEMBER_ID,INTEGER))+1 FROM HOSPITAL_MEMBER)
 		   ,#{hospital_id}
 		   ,#{name}
 		   ,#{dept}

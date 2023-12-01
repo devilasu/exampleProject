@@ -53,7 +53,7 @@
 			  ,SYMPTOM
 			  )
 	   VALUES (
-			   (SELECT MAX(RESERVE_NO)+1 FROM RESERVATION)
+			   (SELECT MAX(CONVERT(RESERVE_NO,INTEGER))+1 FROM RESERVATION)
 			  ,#{memberId}
 			  ,#{hospitalMemberId}
 			  ,#{reserveDate}

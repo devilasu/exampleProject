@@ -42,6 +42,6 @@ public class HospitalMemberMgntController {
 	
 	@GetMapping("/form/doctor")
 	public String formJoinDoctor() throws Exception{
-		return "/joinDoctor";
+		return "joinDoctor";
 	}
 }
