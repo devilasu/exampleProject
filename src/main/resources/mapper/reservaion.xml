@@ -48,15 +48,15 @@
 			   RESERVE_NO
 			  ,MEMBER_ID
 			  ,HOSPITAL_MEMBER_ID
-			  ,PARSEDATETIME(FORMATDATETIME(PARSEDATETIME(RESERVE_DATE, 'yyyy-MM-dd HH:mm:ss'), 'yyyy-MM-dd HH'), 'yyyy-MM-dd HH')
+			  ,RESERVE_DATE
 			  ,ACCEPT
 			  ,SYMPTOM
 			  )
 	   VALUES (
-			   (SELECT MAX(CONVERT(RESERVE_NO,INTEGER))+1 FROM RESERVATION)
+			   NVL((SELECT MAX(CONVERT(RESERVE_NO,INTEGER))+1 FROM RESERVATION), 0)
 			  ,#{memberId}
 			  ,#{hospitalMemberId}
-			  ,#{reserveDate}
+			  ,PARSEDATETIME(FORMATDATETIME(PARSEDATETIME(#{reserveDate}, 'yyyy-MM-dd HH:mm:ss'), 'yyyy-MM-dd HH'), 'yyyy-MM-dd HH')
 			  ,#{symptom}
 			  ,''
 			  )
