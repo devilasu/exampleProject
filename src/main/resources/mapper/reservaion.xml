@@ -37,8 +37,8 @@
 			,RESERVATION B
 		WHERE 1=1
 		AND   A.MEMBER_ID = B.HOSPITAL_MEMBER_ID
-		AND   A.MEMBER_ID = #{HOSPITAL_MEMBER_ID}
-		AND   B.RESERVE_DATE = #{reserveDate}
+		AND   A.MEMBER_ID = #{hospitalMemberId}
+		AND   B.RESERVE_DATE = PARSEDATETIME(FORMATDATETIME(PARSEDATETIME(#{reserveDate}, 'yyyy-MM-dd HH:mm:ss'), 'yyyy-MM-dd HH'), 'yyyy-MM-dd HH')
 	
 	</select>
 	
@@ -57,8 +57,8 @@
 			  ,#{memberId}
 			  ,#{hospitalMemberId}
 			  ,PARSEDATETIME(FORMATDATETIME(PARSEDATETIME(#{reserveDate}, 'yyyy-MM-dd HH:mm:ss'), 'yyyy-MM-dd HH'), 'yyyy-MM-dd HH')
-			  ,#{symptom}
 			  ,''
+			  ,#{symptom}
 			  )
 	</insert>
 	

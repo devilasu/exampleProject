@@ -11,4 +11,5 @@ public class ReservationRegInpDto {
 	private String memberId;
 	private String hospitalMemberId;
 	private String reserveDate;
+	private String symptom;
 }
