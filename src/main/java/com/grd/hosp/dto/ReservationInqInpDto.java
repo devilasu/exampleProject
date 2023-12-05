@@ -10,4 +10,5 @@ import lombok.ToString;
 public class ReservationInqInpDto {
 	private String accept;
 	private String hospitalId;
+	private String memberId;
 }

@@ -18,4 +18,5 @@ public class ReservationInqPrnReptSbDto {
 	private String name;
 	private String doctor_name;
 	private String doctor_dept;
+	private String hospital_name;
 }
