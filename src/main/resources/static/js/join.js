@@ -17,3 +17,7 @@ function validatePassword() {
 
   return true;
 }
+
+function moveUrl(url){
+	location.href = url;
+}

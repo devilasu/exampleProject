@@ -3,6 +3,18 @@ html {
     height: 100%;
 }
 
+.mainBtnWrap{
+	display: flex;
+	justify-content: right;
+}
+
+.mainBtn{
+	width: 100px;
+	display: inline-block;
+	text-align: center;
+}
+
+
 body {
     margin: 0;
     height: 100%;
@@ -35,6 +47,7 @@ body {
     width: 500px;
 }
 
+
 /*입력폼의 제목 설정*/
 h3 {
     margin: 19px 0 8px;
@@ -42,6 +55,8 @@ h3 {
     font-weight: 700;
     padding-left: 1%;
 }
+
+
 
 /*입력폼 외부 범위 설정*/
 .box {
@@ -65,6 +80,7 @@ h3 {
     background: #fff;
     font-size: 15px;
 }
+
 
 /*입력 폰트*/
 input {
