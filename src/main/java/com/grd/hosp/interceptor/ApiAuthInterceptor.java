@@ -16,7 +16,6 @@ public class ApiAuthInterceptor implements HandlerInterceptor{
 			return true;
 		}else {
 			request.setAttribute("message", "로그인이 필요합니다.");
-			request.setAttribute("exception", "Exception");
 			request.getRequestDispatcher("/api/error").forward(request, response);
 			return false;
 		}

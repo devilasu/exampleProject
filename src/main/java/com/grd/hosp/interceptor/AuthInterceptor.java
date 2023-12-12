@@ -15,8 +15,6 @@ public class AuthInterceptor implements HandlerInterceptor{
 		if(SessionUtil.getAttribute("loginEntity") != null) {
 			return true;
 		}else {
-			request.setAttribute("message", "로그인이 필요합니다.");
-			request.setAttribute("exception", "Exception");
 			request.getRequestDispatcher("/form/login").forward(request, response);
 			return false;
 		}
